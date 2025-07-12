@@ -8,8 +8,6 @@
 - Laporan bulanan untuk analisis keuangan.
 - Ekspor data ke PDF.
 - Antarmuka responsif dengan tema merah yang elegan.
-<img width="1808" height="939" alt="Screenshot 2025-07-12 192156" src="https://github.com/user-attachments/assets/90c06078-e0b7-4e70-a1ce-3b7e741f6d16" />
-  
 
 ## Teknologi yang Digunakan
 - **Framework**: CodeIgniter 4
@@ -23,3 +21,5 @@ Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/M
 
 ## Terima Kasih
 Terima kasih telah mencoba Flow! 🚀
+
+<img width="1808" height="939" alt="Screenshot 2025-07-12 192156" src="https://github.com/user-attachments/assets/90c06078-e0b7-4e70-a1ce-3b7e741f6d16" />
