@@ -2,6 +2,16 @@
 
 **Flow** adalah aplikasi web sederhana untuk melacak dan mengelola pengeluaran pribadi atau bisnis. Dibangun dengan CodeIgniter 4, aplikasi ini menawarkan fitur seperti pencatatan pengeluaran, laporan bulanan, dan ekspor PDF, dengan autentikasi pengguna yang aman menggunakan Myth/Auth.
 
+| NIM           | Nama Mahasiswa                |
+| --------------|------------------------------ |
+| **312310569** | Muhammad Prayoga Putra Mahardhika |
+| **312310588** | Endang Sirait |
+| **312310629** | Muhammad Fiqri Firmansyah |
+| **312310670** | Theresia A. K Nababan |
+
+<!-- |Link Video Demo Aplikasi Web| [Klik Disini!]() |
+| -------------------------- | --------------------- | -->
+
 ## Fitur Utama
 - Pendaftaran dan login pengguna dengan desain modern.
 - Tambah, edit, dan hapus catatan pengeluaran.
