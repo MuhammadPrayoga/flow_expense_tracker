@@ -4,8 +4,8 @@
 
 | NIM           | Nama Mahasiswa                |
 | --------------|------------------------------ |
-| **312310569** | Muhammad Prayoga Putra Mahardhika |
 | **312310588** | Endang Sirait |
+| **312310569** | Muhammad Prayoga Putra Mahardhika |
 | **312310629** | Muhammad Fiqri Firmansyah |
 | **312310670** | Theresia A. K Nababan |
 
