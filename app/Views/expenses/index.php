@@ -338,7 +338,7 @@
         Daftar Pengeluaran
     </h1>
     <p class="page-subtitle">Kelola dan pantau semua pengeluaran Anda dengan mudah</p>
-    
+
     <div class="stats-mini">
         <div class="stat-mini">
             <div class="stat-mini-value"><?= count($expenses) ?></div>
@@ -381,7 +381,7 @@
         </a>
     </div>
     <div class="btn-group-custom">
-        <a href="<?= base_url('/expenses/export-pdf') ?>" class="btn-custom btn-danger-custom">
+        <a href="<?= base_url('/expenses/exportpdf') ?>" class="btn-custom btn-danger-custom">
             <i class="fas fa-file-pdf"></i>
             Export PDF
         </a>
@@ -396,7 +396,7 @@
             Daftar Transaksi
         </h3>
     </div>
-    
+
     <div class="table-responsive">
         <table class="expenses-table">
             <thead>
@@ -453,15 +453,15 @@
                             </td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="<?= base_url('/expenses/edit/' . $exp['id']) ?>" 
-                                       class="btn-sm-custom btn-warning-custom" 
-                                       title="Edit">
+                                    <a href="<?= base_url('/expenses/edit/' . $exp['id']) ?>"
+                                        class="btn-sm-custom btn-warning-custom"
+                                        title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="<?= base_url('/expenses/delete/' . $exp['id']) ?>" 
-                                       class="btn-sm-custom btn-danger-sm-custom" 
-                                       title="Hapus"
-                                       onclick="return confirm('Apakah Anda yakin ingin menghapus pengeluaran ini?')">
+                                    <a href="<?= base_url('/expenses/delete/' . $exp['id']) ?>"
+                                        class="btn-sm-custom btn-danger-sm-custom"
+                                        title="Hapus"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus pengeluaran ini?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </div>

@@ -37,3 +37,4 @@ $routes->get('/expenses/edit/(:num)', 'Expenses::edit/$1', ['filter' => 'auth'])
 $routes->post('/expenses/update/(:num)', 'Expenses::update/$1', ['filter' => 'auth']);
 $routes->get('/expenses/delete/(:num)', 'Expenses::delete/$1', ['filter' => 'auth']);
 $routes->get('/analytics', 'Expenses::chart', ['filter' => 'auth']);
+$routes->get('/expenses/exportpdf', 'Expenses::exportPDF', ['filter' => 'auth']);

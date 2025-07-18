@@ -136,11 +136,11 @@ class Expenses extends BaseController
             return redirect()->to('/auth/login');
         }
 
+        // Load DOMPDF via Composer
         require_once APPPATH . 'Libraries/dompdf/autoload.inc.php';
         $dompdf = new \Dompdf\Dompdf();
 
         $expenseModel = new ExpenseModel();
-
         $expenses = $expenseModel
             ->select('expenses.*, categories.nama_kategori')
             ->join('categories', 'categories.id = expenses.kategori_id')
@@ -148,25 +148,20 @@ class Expenses extends BaseController
             ->orderBy('expenses.tanggal', 'DESC')
             ->findAll();
 
-        $html = '<h3>Data Pengeluaran</h3><table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><th>Tanggal</th><th>Nama</th><th>Kategori</th><th>Nominal</th><th>Catatan</th></tr>';
+        $data['expenses'] = $expenses;
+        $html = view('expenses/pdf_export', $data);
 
-        foreach ($expenses as $row) {
-            $html .= "<tr>
-                    <td>{$row['tanggal']}</td>
-                    <td>{$row['nama_pengeluaran']}</td>
-                    <td>{$row['nama_kategori']}</td>
-                    <td>Rp " . number_format($row['nominal'], 0, ',', '.') . "</td>
-                    <td>{$row['catatan']}</td>
-                  </tr>";
-        }
-
-        $html .= '</table>';
-
+        // Muat HTML ke DOMPDF
         $dompdf->loadHtml($html);
+
+        // Atur ukuran kertas dan orientasi
         $dompdf->setPaper('A4', 'portrait');
+
+        // Render PDF
         $dompdf->render();
 
-        $dompdf->stream('pengeluaran.pdf', ['Attachment' => 1]);
+        // Streaming PDF untuk diunduh
+        $dompdf->stream('laporan_pengeluaran.pdf', ['Attachment' => 1]);
     }
 
     public function create()
@@ -224,6 +219,26 @@ class Expenses extends BaseController
 
         return redirect()->to('/expenses')->with('success', 'Pengeluaran berhasil diperbarui');
     }
+
+    public function edit($id)
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/auth/login');
+        }
+
+        $model = new \App\Models\ExpenseModel();
+        $categoryModel = new \App\Models\CategoryModel();
+        $expense = $model->find($id);
+
+        if (!$expense || $expense['user_id'] != session('user_id')) {
+            return redirect()->to('/expenses')->with('error', 'Data tidak ditemukan');
+        }
+
+        $data['expense'] = $expense;
+        $data['categories'] = $categoryModel->where('user_id', session()->get('user_id'))->findAll();
+        return view('expenses/edit', $data);
+    }
+
 
     public function delete($id)
     {
